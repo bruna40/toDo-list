@@ -46,3 +46,26 @@ export const ContainerInput = styled.div`
 
     }
 `;
+
+export const ContainerTarefa = styled.span`
+    display: flex;
+    margin-top: 64px;
+    justify-content: center;
+
+    div {
+        display: flex;
+        margin-right: 17rem;
+        margin-left: 17rem;
+        h6 {
+            font-size: 12px;
+        }
+        p {
+            background: var(--gray-500);
+            border-radius: 40%;
+            font-size: 12px;
+            margin-left: 8px;
+            padding: 2px;
+        }
+    }
+
+`;
