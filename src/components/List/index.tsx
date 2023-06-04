@@ -24,6 +24,9 @@ export function List({text, onDeleteComment, numberTask, setTaskNumber }: ListPr
 
     function handleDeleteComment() {
         onDeleteComment(text)
+        if (taskDone) {
+            setTaskNumber(numberTask - 1)
+        }
 
     }
     return (
