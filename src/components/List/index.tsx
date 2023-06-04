@@ -1,52 +1,39 @@
 import { Trash } from "phosphor-react";
-import { ContainerTarefa, ContainerMain, ContainerLinha, ContainerInput } from "./style";
+import {  ContainerMain, ContainerLinha, ContainerInput } from "./style";
+import { useState } from "react";
 
-export function List() {
+interface ListProps {
+    text: string;
+    onDeleteComment: (taskToDelete: string) => void;
+    numberTask: number;
+    setTaskNumber: (numberTask: number) => void;
+}
+
+export function List({text, onDeleteComment, numberTask, setTaskNumber }: ListProps) {
+    const [taskDone, setTaskDone] = useState<boolean>(false);
+
+    function handleTaskDone() {
+        setTaskDone(!taskDone)
+        setTaskNumber(numberTask + 1)
+
+        //Que o numero do cantador diminua quando a tarefa for desmarcada
+        if (taskDone) {
+            setTaskNumber(numberTask - 1)
+        }
+    }
+
+    function handleDeleteComment() {
+        onDeleteComment(text)
+
+    }
     return (
         <ContainerMain>
-            <ContainerTarefa>
-                <div>
-                    <h6>Tarefas criadas</h6>
-                    <p>1</p>
-                </div>
-                <div>
-                    <h6>Concluídas</h6>
-                    <p>0</p>
-                </div>
-            </ContainerTarefa>
             <span>
-                <ContainerLinha>
+            <ContainerLinha>
                     <li>
-                        <ContainerInput type="checkbox" />
-                        <p>Estudar React</p>
-                        <button>
-                            <Trash size={20} />
-                        </button>
-                    </li>
-                </ContainerLinha>
-                <ContainerLinha>
-                    <li>
-                        <ContainerInput type="checkbox" />
-                        <p>Estudar React</p>
-                        <button>
-                            <Trash size={20} />
-                        </button>
-                    </li>
-                </ContainerLinha>
-                <ContainerLinha>
-                    <li>
-                        <ContainerInput type="checkbox" />
-                        <p>Ablueablueablueablue</p>
-                        <button>
-                            <Trash size={20} />
-                        </button>
-                    </li>
-                </ContainerLinha>
-                <ContainerLinha>
-                    <li>
-                        <ContainerInput type="checkbox" />
-                        <p>Terminar esse todo list, para postar</p>
-                        <button>
+                        <ContainerInput type="checkbox" onClick={handleTaskDone} />
+                        <p style={{ textDecoration: taskDone ? "line-through" : "none" }}>{text}</p>
+                        <button onClick={handleDeleteComment}>
                             <Trash size={20} />
                         </button>
                     </li>

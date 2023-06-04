@@ -1,13 +1,11 @@
 import { Header } from "../../components/Header";
-import { Input } from "../../components/Input";
-import { List } from "../../components/List";
+import { Task } from "../../components/Task";
 
 export function ToDo() {
     return (
         <>
             <Header />
-            <Input />
-            <List />
+            <Task />
         </>
     )
 }

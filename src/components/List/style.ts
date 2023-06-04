@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 
 
@@ -8,40 +8,20 @@ export const ContainerMain = styled.main`
     flex-direction: column;
     align-items: center;
 
-`;
-
-export const ContainerTarefa = styled.span`
-    display: flex;
-    margin-top: 64px;
-    justify-content: center;
-    
-    div {
-        display: flex;
-        margin-right: 17rem;
-        margin-left: 17rem;
-        h6 {
-            font-size: 12px;
-        }
-        p {
-            background: var(--gray-500);
-            width: 12px;
-            border-radius: 40%;
-            font-size: 12px;
-            margin-left: 8px;
-            padding: 2px;
-        }
-    }
 
 `;
+
+
 
 export const ContainerLinha =  styled.ul`
 
     li{ 
+        positon: relative;
         background: var(--gray-500);
         display: flex;
         justify-content: space-between;
         width: 736px;
-        height: 52px;
+        height: 65px;
         margin-top: 24px;
         border-radius: 0.25rem;
         padding: 16px;
@@ -57,6 +37,16 @@ export const ContainerLinha =  styled.ul`
                 filter: brightness(0.8);
             }
         }
+        p{
+            font-size: 15px;
+            width: 100%;
+            text-align: left;
+            color: var(--white);
+            margin-left: 16px;
+            overflow: auto;
+            font-weight: bold;            
+
+        }
     }
 
 `;
@@ -64,8 +54,8 @@ export const ContainerLinha =  styled.ul`
 export const ContainerInput = styled.input`
     /* Estilização padrão do checkbox */
     appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border: 2px solid var(--blue);
 
     /* Arredondando os cantos */
